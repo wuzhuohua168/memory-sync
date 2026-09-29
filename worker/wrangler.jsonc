@@ -1,0 +1,15 @@
+// Replace the placeholders below, or generate them with:
+//   wrangler d1 create memory_sync   (use the returned database_id)
+{
+  "name": "memory-sync",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-29",
+  "account_id": "YOUR_CLOUDFLARE_ACCOUNT_ID",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "memory_sync",
+      "database_id": "YOUR_D1_DATABASE_ID"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+# token / watermark / local state — never commit
+sync_token
+watermark.json
+.memory-sync-state/
+
+# wrangler
+.wrangler/
+.dev.vars
+
+# python
+__pycache__/
+*.pyc
+
+# editors
+.DS_Store
+.vscode/
