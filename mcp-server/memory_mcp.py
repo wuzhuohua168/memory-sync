@@ -51,7 +51,14 @@ def wreq(method, path, data=None, params=None):
     body = json.dumps(data, ensure_ascii=False).encode("utf-8") if data is not None else None
     req = urllib.request.Request(
         url, data=body, method=method,
-        headers={"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json; charset=utf-8"},
+        headers={
+            "Authorization": f"Bearer {TOKEN}",
+            "Content-Type": "application/json; charset=utf-8",
+            # Some Cloudflare zones block non-browser User-Agents (error 1010);
+            # identify as a browser-compatible client so /digest etc. aren't
+            # rejected at the edge before reaching the Worker.
+            "User-Agent": "Mozilla/5.0 (compatible; memory-sync-mcp/0.2.0)",
+        },
     )
     with urllib.request.urlopen(req, timeout=30) as resp:
         payload = json.loads(resp.read().decode("utf-8"))
