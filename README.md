@@ -66,18 +66,45 @@ All endpoints except `GET /health` require `Authorization: Bearer <SYNC_TOKEN>`.
 
 | Method | Path | Description |
 |---|---|---|
-| GET | `/health` | Liveness check, no auth |
-| GET | `/recall?q=...&k=5&bank=shared` | Keyword search, ranked by hit count + recency |
-| POST | `/retain` | `{content, bank?, source?}` → stored, returns `id` |
+| GET | `/health` | Liveness check, no auth (also reports `fts` status) |
+| GET | `/digest?since=...&k=20&bank=shared` | **Timeline: recent memories, newest first. Call at session start.** Defaults to last 24h |
+| GET | `/recall?q=...&k=5&bank=shared&kind=` | Hybrid search: segmented FTS5 (BM25) + trigram substring + LIKE fallback; CJK supported |
+| POST | `/retain` | `{content, bank?, source?, kind?, tags?, expires_at?}` → stored, returns `id` (dedupes identical content) |
+| PATCH | `/memories/<id>` | Update `{content?, kind?, tags?, expires_at?}` |
+| DELETE | `/memories/<id>` | Soft-delete a memory |
 | POST | `/sync/push` | `{items:[{id,content,bank,source,created_at}]}` — upsert by id |
-| GET | `/sync/pull` | Unclaimed inbox entries |
+| GET | `/sync/pull?bank=` | Unclaimed inbox entries |
 | POST | `/sync/ack` | `{ids:[...]}` — mark inbox entries claimed |
+| POST | `/sync/gc` | `{days?}` — purge claimed inbox rows older than N days + hard-delete soft-deleted memories older than 30d |
+| POST | `/admin/backfill_fts` | Index pre-migration rows into FTS (repeat until `remaining` is 0) |
+
+### MCP server (recommended client access)
+
+`mcp-server/memory_mcp.py` is a stdio MCP server (stdlib only, no dependencies)
+exposing five tools: `memory_digest`, `memory_recall`, `memory_retain`,
+`memory_update`, `memory_forget`. Point Cursor / Trae / Claude Code at it —
+see `mcp-server/clients/` for config examples. The tool descriptions tell the
+agent to call `memory_digest` first at session start, which fixes the
+"clients don't know what the others know" problem far better than a prompt doc.
+
+### Upgrading an existing deployment
+
+```bash
+cd worker
+wrangler d1 execute memory_sync --file migrations/0002_p0.sql --remote
+wrangler deploy
+# backfill FTS for rows written before the migration (repeat until remaining=0):
+curl -s -X POST https://<your-worker>/admin/backfill_fts -H "Authorization: Bearer $SYNC_TOKEN"
+```
+
+Optional: add `"triggers": { "crons": ["17 4 * * *"] }` to `wrangler.jsonc`
+to run inbox GC daily without an external cron.
 
 ### Security notes
 
 - The token is a single shared secret: rotate it on both the Worker secret and every client if it leaks.
 - Request bodies must be UTF-8. On Windows, never pass CJK text through a bare `curl` command line (it gets encoded as GBK and stored as garbage) — build the JSON body explicitly in UTF-8 (e.g. Python).
-- There is intentionally no client-side delete/update API. Delete from D1 directly when needed.
+- `source` is self-reported by clients today; per-client tokens (server-derived identity) are the planned P1 hardening. Don't store passwords, API keys, or other secrets as memories.
 
 ### License
 
@@ -146,18 +173,44 @@ python3 sync/sync.py   # 用 cron/systemd 每 5 分钟跑一次
 
 | 方法 | 路径 | 说明 |
 |---|---|---|
-| GET | `/health` | 存活检查，免鉴权 |
-| GET | `/recall?q=关键词&k=5&bank=shared` | 关键词搜索，按命中数 + 时间排序 |
-| POST | `/retain` | `{content, bank?, source?}`，写入后返回 `id` |
+| GET | `/health` | 存活检查，免鉴权（附带 `fts` 状态） |
+| GET | `/digest?since=...&k=20&bank=shared` | **时间线：最新记忆倒序，会话开始先调**，默认最近 24 小时 |
+| GET | `/recall?q=关键词&k=5&bank=shared&kind=` | 混合检索：分词 FTS5（BM25）+ trigram 子串 + LIKE 兜底，支持中文 |
+| POST | `/retain` | `{content, bank?, source?, kind?, tags?, expires_at?}`，写入后返回 `id`（相同内容自动去重） |
+| PATCH | `/memories/<id>` | 修改 `{content?, kind?, tags?, expires_at?}` |
+| DELETE | `/memories/<id>` | 软删除一条记忆 |
 | POST | `/sync/push` | `{items:[{id,content,bank,source,created_at}]}`，按 id upsert |
-| GET | `/sync/pull` | 拉取未领取的 inbox 条目 |
+| GET | `/sync/pull?bank=` | 拉取未领取的 inbox 条目 |
 | POST | `/sync/ack` | `{ids:[...]}`，确认已领取 |
+| POST | `/sync/gc` | `{days?}`，清理已领取 N 天前的 inbox + 硬删除软删除 30 天以上的记忆 |
+| POST | `/admin/backfill_fts` | 给迁移前写入的老数据建 FTS 索引（重复调用直到 `remaining` 为 0） |
+
+### MCP server（推荐的客户端接入方式）
+
+`mcp-server/memory_mcp.py` 是一个 stdio MCP server（纯标准库、零依赖），
+提供 5 个 tool：`memory_digest`、`memory_recall`、`memory_retain`、
+`memory_update`、`memory_forget`。Cursor / Trae / Claude Code 直接指向它即可，
+配置示例见 `mcp-server/clients/`。tool 描述里写死了"会话开始先调 memory_digest"，
+比靠提示词文档更能解决"各客户端互相不知道"的问题。
+
+### 老版本升级
+
+```bash
+cd worker
+wrangler d1 execute memory_sync --file migrations/0002_p0.sql --remote
+wrangler deploy
+# 给老数据建 FTS 索引（重复调用直到 remaining=0）：
+curl -s -X POST https://<你的Worker地址>/admin/backfill_fts -H "Authorization: Bearer $SYNC_TOKEN"
+```
+
+可选：在 `wrangler.jsonc` 加 `"triggers": { "crons": ["17 4 * * *"] }`，
+让 Worker 每天自动跑 inbox GC，不用外部 cron。
 
 ### 安全注意事项
 
 - token 是唯一的共享密钥，泄露后要在 Worker secret 和所有客户端同时更换。
 - 请求体必须是 UTF-8。Windows 下不要直接在命令行里拼中文 curl（会被按 GBK 编码，入库变乱码）——用 Python 等方式显式按 UTF-8 构造请求体。
-- 出于设计，客户端没有删除/修改接口，需要时直接操作 D1 删除。
+- `source` 目前是客户端自报的；按客户端发独立 token（服务端派生身份）是计划中的 P1 加固。不要把密码、API key 等密钥存成记忆。
 
 ### 开源协议
 

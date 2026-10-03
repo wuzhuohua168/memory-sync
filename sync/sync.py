@@ -95,7 +95,7 @@ def save_wm(v):
 
 def pull():
     """Worker inbox -> Hindsight shared bank"""
-    items = wreq("GET", "/sync/pull").get("items", [])
+    items = wreq("GET", "/sync/pull", params={"bank": BANK}).get("items", [])
     acked = []
     for it in items:
         try:

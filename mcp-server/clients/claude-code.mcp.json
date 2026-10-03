@@ -1,0 +1,1 @@
+{"mcpServers":{"memory-sync":{"args":["/path/to/memory-sync/mcp-server/memory_mcp.py"],"command":"python3","env":{"MEMORY_SYNC_SOURCE":"claude-code","MEMORY_SYNC_TOKEN_FILE":"/path/to/.memory-sync-state/sync_token","MEMORY_SYNC_WORKER":"https://memory-sync.<your-subdomain>.workers.dev"}}}}
