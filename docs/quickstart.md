@@ -18,10 +18,10 @@ cd memory-sync && git pull   # 保持最新，拿上游修复
 
 把用户给你的 SYNC_TOKEN 原样写入下面这个文件（无换行、无引号）：
 
-| 系统 | 路径 |
-|---|---|
-| macOS / Linux | `~/.memory-sync-state/sync_token` |
-| Windows | `C:\Users\<你的用户名>\.memory-sync-state\sync_token` |
+| 系统          | 路径                                                  |
+| ------------- | ----------------------------------------------------- |
+| macOS / Linux | `~/.memory-sync-state/sync_token`                     |
+| Windows       | `C:\Users\<你的用户名>\.memory-sync-state\sync_token` |
 
 ```bash
 # macOS / Linux 一行搞定（把引号里的换成真实 token）：
@@ -35,7 +35,9 @@ python3 -c "
 t = open('$HOME/.memory-sync-state/sync_token').read().strip()
 print(len(t), t.startswith('cfut_') == False and len(t) == 64)"
 ```
+
 Windows PowerShell：
+
 ```powershell
 $tok = [System.IO.File]::ReadAllText("$env:USERPROFILE\.memory-sync-state\sync_token").Trim()
 "$($tok.Length) $($tok -match '^[0-9a-f]{64}$')"
@@ -94,9 +96,9 @@ $tok = [System.IO.File]::ReadAllText("$env:USERPROFILE\.memory-sync-state\sync_t
 
 ## 常见坑
 
-| 现象 | 原因 | 解法 |
-|---|---|---|
-| 403 / error 1010 | Python 默认 UA 被 Cloudflare 边缘拦截 | `git pull` 拿到上游 UA 修复（已在 main） |
-| 401 | token 错了或过期 | 找用户重拿 SYNC_TOKEN（64 位 hex） |
-| 中文入库乱码 | Windows 命令行按 GBK 传了中文 | 用 MCP 或 Python 按 UTF-8 构造请求体，不要手拼中文 curl |
-| 工具列表里没有 5 个 tool | MCP server 没重连 | 在客户端设置里断开重连一次（或重启客户端） |
+| 现象                     | 原因                                  | 解法                                                    |
+| ------------------------ | ------------------------------------- | ------------------------------------------------------- |
+| 403 / error 1010         | Python 默认 UA 被 Cloudflare 边缘拦截 | `git pull` 拿到上游 UA 修复（已在 main）                |
+| 401                      | token 错了或过期                      | 找用户重拿 SYNC_TOKEN（64 位 hex）                      |
+| 中文入库乱码             | Windows 命令行按 GBK 传了中文         | 用 MCP 或 Python 按 UTF-8 构造请求体，不要手拼中文 curl |
+| 工具列表里没有 5 个 tool | MCP server 没重连                     | 在客户端设置里断开重连一次（或重启客户端）              |

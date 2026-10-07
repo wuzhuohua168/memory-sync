@@ -9,7 +9,7 @@
     {
       "binding": "DB",
       "database_name": "memory_sync",
-      "database_id": "YOUR_D1_DATABASE_ID"
-    }
-  ]
+      "database_id": "YOUR_D1_DATABASE_ID",
+    },
+  ],
 }

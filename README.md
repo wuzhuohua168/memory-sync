@@ -5,6 +5,7 @@
 ---
 
 <a id="english"></a>
+
 ## English
 
 **memory-sync** is a tiny shared-memory hub for your AI clients. One Cloudflare Worker + D1 database acts as the single source of truth; every client (Trae, Cursor, Claude Code, …) reads and writes through a small HTTP API, so something you tell one assistant is instantly visible to the others.
@@ -64,19 +65,19 @@ python3 sync/sync.py   # run every 5 min via cron/systemd
 
 All endpoints except `GET /health` require `Authorization: Bearer <SYNC_TOKEN>`.
 
-| Method | Path | Description |
-|---|---|---|
-| GET | `/health` | Liveness check, no auth (also reports `fts` status) |
-| GET | `/digest?since=...&k=20&bank=shared` | **Timeline: recent memories, newest first. Call at session start.** Defaults to last 24h |
-| GET | `/recall?q=...&k=5&bank=shared&kind=` | Hybrid search: segmented FTS5 (BM25) + trigram substring + LIKE fallback; CJK supported |
-| POST | `/retain` | `{content, bank?, source?, kind?, tags?, expires_at?}` → stored, returns `id` (dedupes identical content) |
-| PATCH | `/memories/<id>` | Update `{content?, kind?, tags?, expires_at?}` |
-| DELETE | `/memories/<id>` | Soft-delete a memory |
-| POST | `/sync/push` | `{items:[{id,content,bank,source,created_at}]}` — upsert by id |
-| GET | `/sync/pull?bank=` | Unclaimed inbox entries |
-| POST | `/sync/ack` | `{ids:[...]}` — mark inbox entries claimed |
-| POST | `/sync/gc` | `{days?}` — purge claimed inbox rows older than N days + hard-delete soft-deleted memories older than 30d |
-| POST | `/admin/backfill_fts` | Index pre-migration rows into FTS (repeat until `remaining` is 0) |
+| Method | Path                                  | Description                                                                                               |
+| ------ | ------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| GET    | `/health`                             | Liveness check, no auth (also reports `fts` status)                                                       |
+| GET    | `/digest?since=...&k=20&bank=shared`  | **Timeline: recent memories, newest first. Call at session start.** Defaults to last 24h                  |
+| GET    | `/recall?q=...&k=5&bank=shared&kind=` | Hybrid search: segmented FTS5 (BM25) + trigram substring + LIKE fallback; CJK supported                   |
+| POST   | `/retain`                             | `{content, bank?, source?, kind?, tags?, expires_at?}` → stored, returns `id` (dedupes identical content) |
+| PATCH  | `/memories/<id>`                      | Update `{content?, kind?, tags?, expires_at?}`                                                            |
+| DELETE | `/memories/<id>`                      | Soft-delete a memory                                                                                      |
+| POST   | `/sync/push`                          | `{items:[{id,content,bank,source,created_at}]}` — upsert by id                                            |
+| GET    | `/sync/pull?bank=`                    | Unclaimed inbox entries                                                                                   |
+| POST   | `/sync/ack`                           | `{ids:[...]}` — mark inbox entries claimed                                                                |
+| POST   | `/sync/gc`                            | `{days?}` — purge claimed inbox rows older than N days + hard-delete soft-deleted memories older than 30d |
+| POST   | `/admin/backfill_fts`                 | Index pre-migration rows into FTS (repeat until `remaining` is 0)                                         |
 
 ### MCP server (recommended client access)
 
@@ -113,6 +114,7 @@ MIT — see [LICENSE](LICENSE).
 ---
 
 <a id="中文"></a>
+
 ## 中文
 
 **memory-sync** 是一个极简的 AI 共享记忆中枢。一个 Cloudflare Worker + D1 数据库作为唯一数据源，所有 AI 客户端（Trae、Cursor、Claude Code……）通过 HTTP API 读写——你跟其中一个 AI 说的事，其他 AI 立刻都知道。
@@ -171,19 +173,19 @@ python3 sync/sync.py   # 用 cron/systemd 每 5 分钟跑一次
 
 除 `GET /health` 外，所有接口都需要在 Header 带 `Authorization: Bearer <SYNC_TOKEN>`。
 
-| 方法 | 路径 | 说明 |
-|---|---|---|
-| GET | `/health` | 存活检查，免鉴权（附带 `fts` 状态） |
-| GET | `/digest?since=...&k=20&bank=shared` | **时间线：最新记忆倒序，会话开始先调**，默认最近 24 小时 |
-| GET | `/recall?q=关键词&k=5&bank=shared&kind=` | 混合检索：分词 FTS5（BM25）+ trigram 子串 + LIKE 兜底，支持中文 |
-| POST | `/retain` | `{content, bank?, source?, kind?, tags?, expires_at?}`，写入后返回 `id`（相同内容自动去重） |
-| PATCH | `/memories/<id>` | 修改 `{content?, kind?, tags?, expires_at?}` |
-| DELETE | `/memories/<id>` | 软删除一条记忆 |
-| POST | `/sync/push` | `{items:[{id,content,bank,source,created_at}]}`，按 id upsert |
-| GET | `/sync/pull?bank=` | 拉取未领取的 inbox 条目 |
-| POST | `/sync/ack` | `{ids:[...]}`，确认已领取 |
-| POST | `/sync/gc` | `{days?}`，清理已领取 N 天前的 inbox + 硬删除软删除 30 天以上的记忆 |
-| POST | `/admin/backfill_fts` | 给迁移前写入的老数据建 FTS 索引（重复调用直到 `remaining` 为 0） |
+| 方法   | 路径                                     | 说明                                                                                        |
+| ------ | ---------------------------------------- | ------------------------------------------------------------------------------------------- |
+| GET    | `/health`                                | 存活检查，免鉴权（附带 `fts` 状态）                                                         |
+| GET    | `/digest?since=...&k=20&bank=shared`     | **时间线：最新记忆倒序，会话开始先调**，默认最近 24 小时                                    |
+| GET    | `/recall?q=关键词&k=5&bank=shared&kind=` | 混合检索：分词 FTS5（BM25）+ trigram 子串 + LIKE 兜底，支持中文                             |
+| POST   | `/retain`                                | `{content, bank?, source?, kind?, tags?, expires_at?}`，写入后返回 `id`（相同内容自动去重） |
+| PATCH  | `/memories/<id>`                         | 修改 `{content?, kind?, tags?, expires_at?}`                                                |
+| DELETE | `/memories/<id>`                         | 软删除一条记忆                                                                              |
+| POST   | `/sync/push`                             | `{items:[{id,content,bank,source,created_at}]}`，按 id upsert                               |
+| GET    | `/sync/pull?bank=`                       | 拉取未领取的 inbox 条目                                                                     |
+| POST   | `/sync/ack`                              | `{ids:[...]}`，确认已领取                                                                   |
+| POST   | `/sync/gc`                               | `{days?}`，清理已领取 N 天前的 inbox + 硬删除软删除 30 天以上的记忆                         |
+| POST   | `/admin/backfill_fts`                    | 给迁移前写入的老数据建 FTS 索引（重复调用直到 `remaining` 为 0）                            |
 
 ### MCP server（推荐的客户端接入方式）
 

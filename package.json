@@ -1,0 +1,40 @@
+{
+  "name": "memory-sync",
+  "version": "1.0.0",
+  "description": "Shared memory hub for AI clients: one Cloudflare Worker + D1 as the single source of truth.",
+  "main": "worker/src/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "memory",
+    "mcp",
+    "cloudflare"
+  ],
+  "author": "JOY",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "eslint": "^8.57.0",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.mjs": [
+      "prettier --write"
+    ],
+    "*.{json,jsonc,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  }
+}
