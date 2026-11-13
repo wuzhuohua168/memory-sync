@@ -21,7 +21,12 @@
     "rent_coverage": "35 城覆盖 33 城；中山、开封不在中指 50 城租赁样本内，月租一律待核实，绝不编数",
     "rent_yield_calc_note": "rent_yield_calc_pct 为现算参考值：月租均价×12÷空间单价；月租为挂牌样本、空间单价多为成交均价（苏州/东莞/中山/厦门/深圳为中指二手样本平均价，开封为安居客挂牌均价），口径不完全一致，仅作参考，不用于综合估值打分；已公布回报率（rent_yield_lo/hi）仍以 2025 上半年 50 城租售比报告（成交价口径）为准，两者不可直接比较。现算值与已公布值方向一致可作旁证：厦门现算 1.20%（中指 2025-03 称其租金房价比在 1.5% 以下）、深圳现算 1.60%（中指 2025-09 称其仍在 2.0% 以下）。",
     "pir": "2025-H1",
-    "pir_source": "已公布中位数口径（成交中位数÷家庭可支配收入，A/B 两套口径）"
+    "pir_source": "已公布中位数口径（成交中位数÷家庭可支配收入，A/B 两套口径）",
+    "income": "2025",
+    "income_source": "城镇居民人均可支配收入（元/年）：A级各市统计公报原文；B级聚汇数据2025年地级市城镇居民榜汇总（自称汇总各市统计公报，未逐城核对原文）；C级深圳为全体居民数。全国基准2025年全国城镇56502元，国家统计局2026-01-19发布。",
+    "income_household_note": "家庭年均可支配收入=人均×2.52人；户均2.52人为2025年全国1%人口抽样调查全国平均，每城统一换算，不是逐城户规模，逐城户规模未公布（仅上海2020年七普2.32人已核实，未逐城采用）。",
+    "income_coverage": "35城覆盖34城；开封城镇口径2024、2025均未找到，待核实。",
+    "rent_monthly_90sqm_note": "90㎡月租=中指2026-10月租均价（元/㎡/月，住宅租赁挂牌样本）×90㎡；中山、开封不在中指50城租赁样本内，待核实；绝不用回报率区间反推精确月租。"
   },
   "sources_note": "房价、收入、租金没有一家统一免费实时接口：收入一年一更、租金为月度挂牌、29 城同口径成交均价只在百城指数小程序内；新增苏州、中山、东莞单价改用中指二手样本平均价（2026-10），口径与 29 城不同，已在各城依据小字注明，单价不可直接比较；新增厦门、深圳单价同样改用中指二手样本平均价（2026-10），口径与 29 城不同，两城近 5 年跌幅待核实；新增开封单价改用安居客二手房挂牌均价（2026-11），非成交均价，口径与他城不同，已在依据小字注明。哪个源拉不到、哪个城缺数，一律标待核实，绝不编数。",
   "cities": [
@@ -39,7 +44,12 @@
       "rent_yoy_pct": -4.4,
       "rent_yield_calc_pct": 2.9,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 86320,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜；2024数与南京市2024年统计公报一致",
+      "income_household_cny_2025": 217526,
+      "rent_monthly_90sqm_cny": 3199
     },
     {
       "city": "武汉",
@@ -55,7 +65,12 @@
       "rent_yoy_pct": -3.92,
       "rent_yield_calc_pct": 3.16,
       "eval": "合理边缘",
-      "eval_basis": "收入比 4.4 倍达标；回报率 2.0-2.5%，挂牌口径 2.7%+"
+      "eval_basis": "收入比 4.4 倍达标；回报率 2.0-2.5%，挂牌口径 2.7%+",
+      "income_per_capita_urban_cny_2025": 67248,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜；2024数与武汉市2024年统计公报一致",
+      "income_household_cny_2025": 169465,
+      "rent_monthly_90sqm_cny": 2248
     },
     {
       "city": "合肥",
@@ -71,7 +86,12 @@
       "rent_yoy_pct": -4.83,
       "rent_yield_calc_pct": 2.53,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 65568,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 165231,
+      "rent_monthly_90sqm_cny": 2228
     },
     {
       "city": "南昌",
@@ -87,7 +107,12 @@
       "rent_yoy_pct": -5.02,
       "rent_yield_calc_pct": 3.32,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 59609,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 150215,
+      "rent_monthly_90sqm_cny": 1829
     },
     {
       "city": "郑州",
@@ -103,7 +128,12 @@
       "rent_yoy_pct": -2.53,
       "rent_yield_calc_pct": 3.04,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 52413,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 132081,
+      "rent_monthly_90sqm_cny": 1819
     },
     {
       "city": "兰州",
@@ -119,7 +149,12 @@
       "rent_yoy_pct": -3.54,
       "rent_yield_calc_pct": 3.56,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 52660,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 132703,
+      "rent_monthly_90sqm_cny": 1993
     },
     {
       "city": "广州",
@@ -135,7 +170,12 @@
       "rent_yoy_pct": -2.16,
       "rent_yield_calc_pct": 2.79,
       "eval": "严重高估",
-      "eval_basis": "收入比 8.1/6.1 倍；回报率 1.69%"
+      "eval_basis": "收入比 8.1/6.1 倍；回报率 1.69%",
+      "income_per_capita_urban_cny_2025": 86069,
+      "income_level_2025": "A",
+      "income_note_2025": "广州市统计局2025年经济运行情况，2026-01-30",
+      "income_household_cny_2025": 216894,
+      "rent_monthly_90sqm_cny": 4258
     },
     {
       "city": "海口",
@@ -151,7 +191,12 @@
       "rent_yoy_pct": -4.27,
       "rent_yield_calc_pct": 2.51,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 49741,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 125347,
+      "rent_monthly_90sqm_cny": 2300
     },
     {
       "city": "福州",
@@ -167,7 +212,12 @@
       "rent_yoy_pct": -2.15,
       "rent_yield_calc_pct": 2.95,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 63435,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 159856,
+      "rent_monthly_90sqm_cny": 2890
     },
     {
       "city": "天津",
@@ -183,7 +233,12 @@
       "rent_yoy_pct": -1.6,
       "rent_yield_calc_pct": 2.82,
       "eval": "合理边缘",
-      "eval_basis": "收入比 B 口径 5.0 倍达标；回报率未逐城公布"
+      "eval_basis": "收入比 B 口径 5.0 倍达标；回报率未逐城公布",
+      "income_per_capita_urban_cny_2025": 60099,
+      "income_level_2025": "A",
+      "income_note_2025": "天津市统计局2025年经济运行情况，天津日报2026-01-23引述",
+      "income_household_cny_2025": 151449,
+      "rent_monthly_90sqm_cny": 2606
     },
     {
       "city": "西安",
@@ -199,7 +254,12 @@
       "rent_yoy_pct": -6.65,
       "rent_yield_calc_pct": 2.77,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 56324,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 141936,
+      "rent_monthly_90sqm_cny": 2121
     },
     {
       "city": "重庆",
@@ -215,7 +275,12 @@
       "rent_yoy_pct": -3.7,
       "rent_yield_calc_pct": 3.17,
       "eval": "合理边缘",
-      "eval_basis": "收入比 5.2/5.9 倍；回报率 2.5-3.0%"
+      "eval_basis": "收入比 5.2/5.9 倍；回报率 2.5-3.0%",
+      "income_per_capita_urban_cny_2025": 51854,
+      "income_level_2025": "A",
+      "income_note_2025": "2025年重庆市统计公报",
+      "income_household_cny_2025": 130672,
+      "rent_monthly_90sqm_cny": 2094
     },
     {
       "city": "长春",
@@ -231,7 +296,12 @@
       "rent_yoy_pct": -2.21,
       "rent_yield_calc_pct": 3.8,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 44250,
+      "income_level_2025": "A",
+      "income_note_2025": "长春市统计局2025年1-12月主要经济指标",
+      "income_household_cny_2025": 111510,
+      "rent_monthly_90sqm_cny": 1908
     },
     {
       "city": "北京",
@@ -247,7 +317,12 @@
       "rent_yoy_pct": -3.02,
       "rent_yield_calc_pct": 2.45,
       "eval": "严重高估",
-      "eval_basis": "收入比 12.3/10.8 倍；回报率 1.81%"
+      "eval_basis": "收入比 12.3/10.8 倍；回报率 1.81%",
+      "income_per_capita_urban_cny_2025": 96292,
+      "income_level_2025": "A",
+      "income_note_2025": "北京市2025年统计公报，2026-03-25",
+      "income_household_cny_2025": 242656,
+      "rent_monthly_90sqm_cny": 7270
     },
     {
       "city": "南宁",
@@ -263,7 +338,12 @@
       "rent_yoy_pct": -1.92,
       "rent_yield_calc_pct": 2.9,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 48375,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 121905,
+      "rent_monthly_90sqm_cny": 1951
     },
     {
       "city": "沈阳",
@@ -279,7 +359,12 @@
       "rent_yoy_pct": -1.48,
       "rent_yield_calc_pct": 3.76,
       "eval": "合理边缘",
-      "eval_basis": "回报率 3.20% 达标；收入比未逐城公布"
+      "eval_basis": "回报率 3.20% 达标；收入比未逐城公布",
+      "income_per_capita_urban_cny_2025": 58297,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 146908,
+      "rent_monthly_90sqm_cny": 2015
     },
     {
       "city": "济南",
@@ -295,7 +380,12 @@
       "rent_yoy_pct": -2.82,
       "rent_yield_calc_pct": 2.55,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 68128,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 171683,
+      "rent_monthly_90sqm_cny": 2100
     },
     {
       "city": "昆明",
@@ -311,7 +401,12 @@
       "rent_yoy_pct": -1.22,
       "rent_yield_calc_pct": 2.99,
       "eval": "偏高",
-      "eval_basis": "回报率 2.80%，接近 3% 线；收入比未逐城公布"
+      "eval_basis": "回报率 2.80%，接近 3% 线；收入比未逐城公布",
+      "income_per_capita_urban_cny_2025": 58938,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 148524,
+      "rent_monthly_90sqm_cny": 1870
     },
     {
       "city": "石家庄",
@@ -327,7 +422,12 @@
       "rent_yoy_pct": -3.61,
       "rent_yield_calc_pct": 2.52,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 52559,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 132449,
+      "rent_monthly_90sqm_cny": 1751
     },
     {
       "city": "长沙",
@@ -343,7 +443,12 @@
       "rent_yoy_pct": -4.82,
       "rent_yield_calc_pct": 3.86,
       "eval": "合理边缘",
-      "eval_basis": "有报告将其列入回报率超 3% 城市组，未公布精确数；收入比未逐城公布"
+      "eval_basis": "有报告将其列入回报率超 3% 城市组，未公布精确数；收入比未逐城公布",
+      "income_per_capita_urban_cny_2025": 72117,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜；CEIC亦载72117，来源长沙市统计局",
+      "income_household_cny_2025": 181735,
+      "rent_monthly_90sqm_cny": 2193
     },
     {
       "city": "哈尔滨",
@@ -359,7 +464,12 @@
       "rent_yoy_pct": -1.52,
       "rent_yield_calc_pct": 4.24,
       "eval": "合理偏低",
-      "eval_basis": "回报率 3.44% 达标，房价绝对值低"
+      "eval_basis": "回报率 3.44% 达标，房价绝对值低",
+      "income_per_capita_urban_cny_2025": 46915,
+      "income_level_2025": "A",
+      "income_note_2025": "2025年哈尔滨市统计公报，2026-06-03",
+      "income_household_cny_2025": 118226,
+      "rent_monthly_90sqm_cny": 2035
     },
     {
       "city": "呼和浩特",
@@ -375,7 +485,12 @@
       "rent_yoy_pct": -1.32,
       "rent_yield_calc_pct": 2.96,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 61624,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 155292,
+      "rent_monthly_90sqm_cny": 1635
     },
     {
       "city": "东莞",
@@ -391,7 +506,12 @@
       "rent_yoy_pct": 0.87,
       "rent_yield_calc_pct": 2.08,
       "eval": "偏高",
-      "eval_basis": "单价中指二手样本均价 2026-10（口径与 29 城不同）；回报率 1.46% 远低于 3% 线；收入比未逐城公布"
+      "eval_basis": "单价中指二手样本均价 2026-10（口径与 29 城不同）；回报率 1.46% 远低于 3% 线；收入比未逐城公布",
+      "income_per_capita_urban_cny_2025": 72137,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 181785,
+      "rent_monthly_90sqm_cny": 2360
     },
     {
       "city": "杭州",
@@ -407,7 +527,12 @@
       "rent_yoy_pct": -2.4,
       "rent_yield_calc_pct": 2.38,
       "eval": "偏高",
-      "eval_basis": "收入比 5.7 倍进合理区；回报率未逐城公布"
+      "eval_basis": "收入比 5.7 倍进合理区；回报率未逐城公布",
+      "income_per_capita_urban_cny_2025": 86640,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 218333,
+      "rent_monthly_90sqm_cny": 4339
     },
     {
       "city": "上海",
@@ -423,7 +548,12 @@
       "rent_yoy_pct": 2.78,
       "rent_yield_calc_pct": 2.32,
       "eval": "严重高估",
-      "eval_basis": "收入比 9.6/9.0 倍；回报率 1.75%"
+      "eval_basis": "收入比 9.6/9.0 倍；回报率 1.75%",
+      "income_per_capita_urban_cny_2025": 96842,
+      "income_level_2025": "A",
+      "income_note_2025": "2025年上海市统计公报引述及CEIC，来源上海市统计局",
+      "income_household_cny_2025": 244042,
+      "rent_monthly_90sqm_cny": 7654
     },
     {
       "city": "苏州",
@@ -439,7 +569,12 @@
       "rent_yoy_pct": -0.33,
       "rent_yield_calc_pct": 2.01,
       "eval": "偏高",
-      "eval_basis": "单价中指二手样本均价 2026-10（口径与 29 城不同）；回报率 1.66% 远低于 3% 线；收入比未逐城公布"
+      "eval_basis": "单价中指二手样本均价 2026-10（口径与 29 城不同）；回报率 1.66% 远低于 3% 线；收入比未逐城公布",
+      "income_per_capita_urban_cny_2025": 90125,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 227115,
+      "rent_monthly_90sqm_cny": 3065
     },
     {
       "city": "成都",
@@ -455,7 +590,12 @@
       "rent_yoy_pct": -3.2,
       "rent_yield_calc_pct": 3.11,
       "eval": "合理边缘",
-      "eval_basis": "收入比 6.1/5.5 倍；回报率 2.0-2.5%，挂牌口径 2.7%+"
+      "eval_basis": "收入比 6.1/5.5 倍；回报率 2.0-2.5%，挂牌口径 2.7%+",
+      "income_per_capita_urban_cny_2025": 59509,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 149963,
+      "rent_monthly_90sqm_cny": 2841
     },
     {
       "city": "贵阳",
@@ -471,7 +611,12 @@
       "rent_yoy_pct": -3.01,
       "rent_yield_calc_pct": 3.68,
       "eval": "合理偏低",
-      "eval_basis": "回报率 3.44% 达标，房价绝对值低"
+      "eval_basis": "回报率 3.44% 达标，房价绝对值低",
+      "income_per_capita_urban_cny_2025": 52778,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 133001,
+      "rent_monthly_90sqm_cny": 1778
     },
     {
       "city": "中山",
@@ -487,7 +632,12 @@
       "rent_yoy_pct": null,
       "rent_yield_calc_pct": null,
       "eval": "待核实",
-      "eval_basis": "单价中指二手样本均价 2026-10（口径与 29 城不同）；收入比与回报率均未逐城公布"
+      "eval_basis": "单价中指二手样本均价 2026-10（口径与 29 城不同）；收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 69138,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 174228,
+      "rent_monthly_90sqm_cny": null
     },
     {
       "city": "银川",
@@ -503,7 +653,12 @@
       "rent_yoy_pct": -0.76,
       "rent_yield_calc_pct": 2.89,
       "eval": "合理偏低",
-      "eval_basis": "回报率 4.58% 达标，房价绝对值低"
+      "eval_basis": "回报率 4.58% 达标，房价绝对值低",
+      "income_per_capita_urban_cny_2025": 51469,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 129702,
+      "rent_monthly_90sqm_cny": 1319
     },
     {
       "city": "太原",
@@ -519,7 +674,12 @@
       "rent_yoy_pct": -3.32,
       "rent_yield_calc_pct": 2.28,
       "eval": "待核实",
-      "eval_basis": "收入比与回报率均未逐城公布"
+      "eval_basis": "收入比与回报率均未逐城公布",
+      "income_per_capita_urban_cny_2025": 49772,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 125425,
+      "rent_monthly_90sqm_cny": 1607
     },
     {
       "city": "乌鲁木齐",
@@ -535,7 +695,12 @@
       "rent_yoy_pct": 0.74,
       "rent_yield_calc_pct": 3.32,
       "eval": "合理偏低",
-      "eval_basis": "回报率 3.63% 达标（另一报告 3.86%），房价绝对值低"
+      "eval_basis": "回报率 3.63% 达标（另一报告 3.86%），房价绝对值低",
+      "income_per_capita_urban_cny_2025": 54575,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 137529,
+      "rent_monthly_90sqm_cny": 2116
     },
     {
       "city": "厦门",
@@ -551,7 +716,12 @@
       "rent_yoy_pct": -4.93,
       "rent_yield_calc_pct": 1.2,
       "eval": "待核实",
-      "eval_basis": "单价中指二手样本均价 2026-10（口径与 29 城不同）；收入比与回报率均未逐城公布精确值；近 5 年跌幅待核实"
+      "eval_basis": "单价中指二手样本均价 2026-10（口径与 29 城不同）；收入比与回报率均未逐城公布精确值；近 5 年跌幅待核实",
+      "income_per_capita_urban_cny_2025": 79719,
+      "income_level_2025": "B",
+      "income_note_2025": "聚汇2025榜",
+      "income_household_cny_2025": 200892,
+      "rent_monthly_90sqm_cny": 3409
     },
     {
       "city": "深圳",
@@ -567,7 +737,12 @@
       "rent_yoy_pct": 0.58,
       "rent_yield_calc_pct": 1.6,
       "eval": "严重高估",
-      "eval_basis": "收入比 14.6/12.3 倍远未达标；回报率未逐城公布精确值（中指 2025-09 显示仍在 2.0% 以下）；单价中指二手样本均价 2026-10（口径与 29 城不同）；近 5 年跌幅待核实"
+      "eval_basis": "收入比 14.6/12.3 倍远未达标；回报率未逐城公布精确值（中指 2025-09 显示仍在 2.0% 以下）；单价中指二手样本均价 2026-10（口径与 29 城不同）；近 5 年跌幅待核实",
+      "income_per_capita_urban_cny_2025": 84945,
+      "income_level_2025": "C",
+      "income_note_2025": "深圳市2025年统计公报只公布全体居民84945元，未单独公布城镇数；城镇化率99.79%，两者极接近但严格说非城镇单独数",
+      "income_household_cny_2025": 214061,
+      "rent_monthly_90sqm_cny": 7489
     },
     {
       "city": "开封",
@@ -583,7 +758,12 @@
       "rent_yoy_pct": null,
       "rent_yield_calc_pct": null,
       "eval": "待核实",
-      "eval_basis": "单价安居客二手房挂牌均价 2026-11（非成交均价，口径与他城不同；开封不在中指百城样本内）；收入比与回报率均未逐城公布精确值；近 5 年跌幅待核实"
+      "eval_basis": "单价安居客二手房挂牌均价 2026-11（非成交均价，口径与他城不同；开封不在中指百城样本内）；收入比与回报率均未逐城公布精确值；近 5 年跌幅待核实",
+      "income_per_capita_urban_cny_2025": null,
+      "income_level_2025": null,
+      "income_note_2025": "城镇口径2024、2025均未找到，待核实；2024全体28569元不可代用，2025年1-9月城镇37117元为累计数不可年化",
+      "income_household_cny_2025": null,
+      "rent_monthly_90sqm_cny": null
     }
   ],
   "aggregates": {
@@ -602,67 +782,28 @@
   },
   "latest_pull": {
     "run_date": "2026-11-13",
-    "run_type": "add_cities_xiamen_shenzhen_kaifeng",
+    "run_type": "add_income_rent_autofill",
     "changes": [
       {
-        "item": "cities_add_xiamen",
+        "item": "income_per_city_2025",
         "old": null,
-        "new": {
-          "price_cny_per_sqm": 37805,
-          "drop_5y_pct": null,
-          "rent_yield_pct": null,
-          "eval": "待核实"
-        },
-        "source": "中指研究院百城价格指数报告（2026 年 10 月）表 3 二手住宅样本平均价 37805（环比 -1.14%）；中指云官网 2026-10 二手住宅榜单复核一致；中指 2025 年 3 月租赁报告（厦门租金房价比在 1.5% 以下，未给精确值）",
-        "as_of": "2026-10",
-        "note": "新增厦门：单价 37805 元/㎡，近 5 年跌幅待核实（2021-10 同口径基数未公开检索到，绝不推算），收入比与回报率均未逐城公布精确值，综合估值位置待核实；单价口径与 29 城不同，已注明"
+        "new": "34/35城有2025年城镇人均可支配收入，开封待核实；家庭年均=人均×2.52人（2025全国1%抽样，统一换算）",
+        "source": "见各城income_note_2025；A级市统计公报原文，B级聚汇2025榜汇总，C级深圳全体居民数",
+        "as_of": "2025"
       },
       {
-        "item": "cities_add_shenzhen",
+        "item": "rent_monthly_90sqm",
         "old": null,
-        "new": {
-          "price_cny_per_sqm": 62571,
-          "drop_5y_pct": null,
-          "pir_median_a": 14.6,
-          "pir_median_b": 12.3,
-          "rent_yield_pct": null,
-          "eval": "严重高估"
-        },
-        "source": "中指研究院百城价格指数报告（2026 年 10 月）表 3/表 4 二手住宅样本平均价 62571（环比 -0.50%，同比 -4.43%）；中指云官网 2026-10 二手住宅榜单复核一致；收入比 B 口径 12.3 倍经国金宏观 2026-01-29 文章复核；中指 2025 年 9 月租赁报告（深圳租金房价比仍在 2.0% 以下，未给精确值）",
-        "as_of": "2026-10",
-        "note": "新增深圳：单价 62571 元/㎡，近 5 年跌幅待核实（2021-10 同口径基数未公开检索到，绝不推算），收入比 14.6/12.3 倍远未达标，回报率未逐城公布精确值，综合估值位置严重高估（按天津/昆明先例：单项硬指标已决定性不达标时可评级）；单价口径与 29 城不同，已注明；空间此前参考栏的深圳 1.61% 未经逐城公布值核实，已撤下"
-      },
-      {
-        "item": "cities_add_kaifeng",
-        "old": null,
-        "new": {
-          "price_cny_per_sqm": 5445,
-          "drop_5y_pct": null,
-          "rent_yield_pct": null,
-          "eval": "待核实"
-        },
-        "source": "安居客开封房价页二手房挂牌均价 5445 元/㎡（2026-11，环比 +0.02%，同比 +1.73%），页面 2026-11-13 实测；开封不在中指百城样本内（2026-10 报告表 3 与中指云官网榜单均无开封），无中指二手样本平均价；挂牌均价非成交均价，口径与他城不同",
-        "as_of": "2026-11",
-        "note": "新增开封：单价 5445 元/㎡（安居客二手房挂牌均价，非成交均价，口径与他城不同，已注明），近 5 年跌幅、收入比、回报率均未逐城公布，综合估值位置待核实，绝不推算"
+        "new": "33/35城有90㎡月租=中指2026-10月租均价×90；中山、开封待核实",
+        "source": "中指研究院50城住宅租赁价格指数（2026-10）",
+        "as_of": "2026-10"
       }
     ],
     "unchanged": [
       {
-        "item": "cities_34_unchanged",
-        "note": "原 34 城单价、跌幅、收入比、回报率与综合估值位置全部不变（含 2026-11-13 新增的苏州、东莞、中山、厦门、深圳五城）；评分规则不变"
-      },
-      {
-        "item": "cities_price_same_series",
-        "note": "29 城同口径成交均价无新版：百城指数小程序榜单截至 2026 年 11 月已是空间现用版；中指 11 月月报截至 2026-11-13 未发布（最新为 10 月报），不混用不同口径"
-      },
-      {
-        "item": "eval_ratings",
-        "note": "原评级不变：北京/上海/广州严重高估，杭州/昆明/苏州/东莞偏高，武汉/重庆/成都/天津/沈阳/长沙合理边缘，银川/乌鲁木齐/哈尔滨/贵阳合理偏低；新增深圳严重高估，厦门、开封待核实；待核实共 17 城"
+        "item": "cities_35_price_eval",
+        "note": "35城单价、跌幅、收入比、回报率与综合估值位置全部不变；评分规则不变"
       }
-    ],
-    "cross_check_not_merged": {
-      "note": "中指 2026 年 10 月二手住宅样本平均价是另一口径（与空间榜单水平不同，不可直接比较，新增 2 城使用并已注明），仅作方向复核：北京 60145 元/㎡（环比 -0.69%）、上海 55188（-0.24%）、南京 24363（-1.02%）、武汉 12630（-0.66%）、成都 15965（-0.80%）、广州 32059（-0.79%）、杭州 31071（-0.99%）、天津 19734（-0.90%）、合肥 14979（-0.36%）、南昌 9498、兰州 9386、南宁 9546——10 月 98 城下跌、仅 1 城上涨，跌势未止，与空间方向一致；厦门环比 -1.14%、深圳环比 -0.50%，均在下跌之列",
-      "source": "中指研究院 2026 年 10 月百城价格指数报告"
-    }
+    ]
   }
 }
